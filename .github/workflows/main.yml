@@ -1,7 +1,13 @@
 name: GitHub Actions Demo
-on: [push]
+on: 
+  push: # Dieser Teil verstehe ich nicht sehr gut, wie es funktioniert, aber es schafft es mit Hilfe von Chat-GPT, dies zu tun.
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 jobs:
-  Explore-GitHub-Actions:
+  changed-job:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -15,4 +21,5 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-
+      - name: farewell
+        run: echo "Bye bye!"
